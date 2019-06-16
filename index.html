@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- Created by pdf2htmlEX (https://github.com/coolwanglu/pdf2htmlex) -->
+<!-- https://www.zamzar.com/convert/ppt-to-html5/ -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+
+<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="main.css"/>
+
+<title></title>
+</head>
+<body>
+
+<img id="pic" onclick="nieuwMens()" src="dias/Dia1.png" style="max-height:100vh;width:auto;">
+
+<script type="text/javascript">
+	var aantal = 182;
+	
+	function nieuwMens(){
+		var ranID = Math.floor( (Math.random() * aantal) + 1);
+		document.getElementById('pic').src = ('dias/Dia' + ranID + '.png');
+	}
+
+</script>
+</body>
+</html>
