@@ -8,14 +8,14 @@
 </head>
 <body>
 
-<img id="pic" onclick="nieuwMens()" src="Dia1.PNG" style="max-height:100vh;width:auto;">
+<img id="pic" onclick="nieuwMens()" src="dias/Dia1.PNG" style="max-height:100vh;width:auto;">
 
 <script type="text/javascript">
 	var aantal = 182;
 	
 	function nieuwMens(){
 		var ranID = Math.floor( (Math.random() * aantal) + 1);
-		document.getElementById('pic').src = ('dias/Dia' + ranID + '.png');
+		document.getElementById('pic').src = ('dias/Dia' + ranID + '.PNG');
 	}
 
 </script>
