@@ -40,36 +40,39 @@
 
 
 <script type="text/javascript">
-//setTimeout(nieuwMens, 3000)
-	var aantal = 190-1;
-	
-	function nieuwMens(){
-		document.documentElement.requestFullscreen();
-		var ranID = Math.floor( (Math.random() * aantal) + 2);
-		document.getElementById('pic').src = ('dias/Dia' + ranID + '.png');
-	}
+    // Lijst van beschikbare afbeeldingen in de map 'dias'
+    const afbeeldingen = [
+        "Dia1.png", "Dia2.png", "Dia3.png", "Dia4.png", "Dia5.png",
+        "Dia6.png", "Dia7.png", "Dia8.png", "Dia9.png" // Voeg hier alle bestandsnamen toe
+    ];
 
-	
-function startCount(seconds) {
-    let counter = seconds;
-    const span = document.getElementById("count");
-    span.innerHTML = counter;
-    document.getElementById("pic").style.opacity = 0.5;
+    function nieuwMens() {
+        document.documentElement.requestFullscreen();
+        // Kies een willekeurige afbeelding uit de lijst (behalve Dia1.png)
+        const randomIndex = Math.floor(Math.random() * (afbeeldingen.length - 1)) + 1;
+        const randomImage = afbeeldingen[randomIndex];
+        document.getElementById('pic').src = 'dias/' + randomImage;
+    }
 
-    const intervalId = setInterval(function () {
-        counter--;
-        if (counter >= 0) {
-            span.innerHTML = counter;
-        }
-        if (counter === 0) {
-            nieuwMens();
-            span.innerHTML = '';
-            document.getElementById("pic").style.opacity = 1;
-            clearInterval(intervalId); // Stop de interval correct
-        }
-    }, 1000);
-}
+    function startCount(seconds) {
+        let counter = seconds;
+        const span = document.getElementById("count");
+        span.innerHTML = counter;
+        document.getElementById("pic").style.opacity = 0.5;
 
+        const intervalId = setInterval(function () {
+            counter--;
+            if (counter >= 0) {
+                span.innerHTML = counter;
+            }
+            if (counter === 0) {
+                nieuwMens();
+                span.innerHTML = '';
+                document.getElementById("pic").style.opacity = 1;
+                clearInterval(intervalId); // Stop de interval correct
+            }
+        }, 1000);
+    }
 </script>
 </body>
 </html>
