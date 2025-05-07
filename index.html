@@ -46,12 +46,21 @@
         "Dia6.PNG", "Dia7.PNG", "Dia8.PNG", "Dia9.PNG" // Voeg hier alle bestandsnamen toe
     ];
 
+    let isFirstRun = true; // Variabele om te controleren of het de eerste keer is
+
     function nieuwMens() {
         document.documentElement.requestFullscreen();
-        // Kies een willekeurige afbeelding uit de lijst (behalve Dia1.png)
-        const randomIndex = Math.floor(Math.random() * (afbeeldingen.length - 1)) + 1;
-        const randomImage = afbeeldingen[randomIndex];
-        document.getElementById('pic').src = 'dias/' + randomImage;
+
+        if (isFirstRun) {
+            // Stel de eerste afbeelding in op Dia1.png
+            document.getElementById('pic').src = 'dias/Dia1.PNG';
+            isFirstRun = false; // Zet de variabele naar false na de eerste keer
+        } else {
+            // Kies een willekeurige afbeelding uit de lijst (behalve Dia1.png)
+            const randomIndex = Math.floor(Math.random() * (afbeeldingen.length - 1)) + 1;
+            const randomImage = afbeeldingen[randomIndex];
+            document.getElementById('pic').src = 'dias/' + randomImage;
+        }
     }
 
     function startCount(seconds) {
