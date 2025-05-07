@@ -50,33 +50,24 @@
 	}
 
 	
-function startCount(seconds){
-  
-(function(){
-	var counter = seconds;
-	span = document.getElementById("count");
-	span.innerHTML = counter;
-	document.getElementById("pic").style.opacity = 0.5;
-	
-	setInterval(function() {
-		counter--;
-		if (counter >= 0) {
-			span = document.getElementById("count");
-			span.innerHTML = counter;
-		}
-		// Display 'counter' wherever you want to display it.
-		if (counter === 0) {
-			nieuwMens();
-			span = document.getElementById("count");
-			span.innerHTML = '';
-			document.getElementById("pic").style.opacity = 1;
-			clearInterval(counter);
-		}
-    
-	}, 1000);
-    
-})();
-  
+function startCount(seconds) {
+    let counter = seconds;
+    const span = document.getElementById("count");
+    span.innerHTML = counter;
+    document.getElementById("pic").style.opacity = 0.5;
+
+    const intervalId = setInterval(function () {
+        counter--;
+        if (counter >= 0) {
+            span.innerHTML = counter;
+        }
+        if (counter === 0) {
+            nieuwMens();
+            span.innerHTML = '';
+            document.getElementById("pic").style.opacity = 1;
+            clearInterval(intervalId); // Stop de interval correct
+        }
+    }, 1000);
 }
 
 </script>
